@@ -1,5 +1,5 @@
 {
-  "name": "serverless-authentication-google",
+  "name": "serverless-authentication-microsoft",
   "version": "0.1.0",
   "description": "Windows Live module for Serverless Authentication",
   "main": "lib/index.js",
