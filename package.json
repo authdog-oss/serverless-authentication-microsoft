@@ -6,6 +6,10 @@
   "license": "MIT",
   "private": false,
   "author": "Eetu Tuomala <eetu.tuomala@sc5.io>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/laardee/serverless-authentication-microsoft"
+  },
   "dependencies": {
     "serverless-authentication": "git@github.com:laardee/serverless-authentication.git#develop"
   },
