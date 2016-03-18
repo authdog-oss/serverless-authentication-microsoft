@@ -1,17 +1,23 @@
 {
   "name": "serverless-authentication-microsoft",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Windows Live module for Serverless Authentication",
   "main": "lib/index.js",
   "license": "MIT",
   "private": false,
   "author": "Eetu Tuomala <eetu.tuomala@sc5.io>",
+  "keywords": [
+    "serverless",
+    "aws",
+    "oauth",
+    "lambda"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/laardee/serverless-authentication-microsoft"
   },
   "dependencies": {
-    "serverless-authentication": "^0.1.0"
+    "serverless-authentication": "^0.1.4"
   },
   "devDependencies": {
     "babel-cli": "^6.6.4",
