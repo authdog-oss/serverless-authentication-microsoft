@@ -3,8 +3,8 @@
 let config = require('serverless-authentication').config;
 let auth = require('../lib');
 
-describe('Google authentication', () => {
-  describe('Test Google authentication', () => {
+describe('Microsoft authentication', () => {
+  describe('Test Microsoft authentication', () => {
     it('Test signin', () => {
       let providerConfig = config('microsoft');
       auth.signin(providerConfig, {}, (err, data) => {
