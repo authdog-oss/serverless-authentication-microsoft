@@ -1,6 +1,6 @@
 {
   "name": "serverless-authentication-microsoft",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Windows Live module for Serverless Authentication",
   "main": "lib/index.js",
   "license": "MIT",
@@ -17,7 +17,7 @@
     "url": "https://github.com/laardee/serverless-authentication-microsoft"
   },
   "dependencies": {
-    "serverless-authentication": "^0.1.4"
+    "serverless-authentication": "^0.1.5"
   },
   "devDependencies": {
     "babel-cli": "^6.6.4",
