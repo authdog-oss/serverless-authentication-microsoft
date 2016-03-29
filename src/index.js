@@ -17,7 +17,7 @@ export function signin({id, redirect_uri}, {scope = 'wl.basic', state}, callback
   }
 
   let url = utils.urlBuilder('https://login.live.com/oauth20_authorize.srf', params);
-  callback(null, {url: url});
+  callback(null, {url});
 }
 
 export function callback({code, state}, {id, redirect_uri, secret}, callback) {
