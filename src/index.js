@@ -18,7 +18,7 @@ class MicrosoftProvider extends Provider {
       profileMap: mapProfile,
       authorizationMethod: 'POST'
     };
-    super.callback(event, options, {grant_type: 'authorization_code'}, callback);
+    super.callback(event, options, {authorization: {grant_type: 'authorization_code'}}, callback);
   }
 }
 
