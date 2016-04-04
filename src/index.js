@@ -26,7 +26,7 @@ function mapProfile(response) {
   return new Profile({
     id: response.id,
     name: response.name,
-    email: response.emails.preferred,
+    email: response.emails && response.emails.preferred ? response.emails.preferred : null,
     picture: 'https://apis.live.net/v5.0/' + response.id + '/picture',
     provider: 'microsoft',
     _raw: response
