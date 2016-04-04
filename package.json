@@ -17,7 +17,7 @@
     "url": "https://github.com/laardee/serverless-authentication-microsoft"
   },
   "dependencies": {
-    "serverless-authentication": "https://github.com/laardee/serverless-authentication.git#develop-provider"
+    "serverless-authentication": "^0.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.6.4",
