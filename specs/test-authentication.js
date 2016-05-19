@@ -1,14 +1,15 @@
 "use strict";
 
-let config = require('serverless-authentication').config;
-let auth = require('../lib');
-let nock = require('nock');
+const config = require('serverless-authentication').config;
+const auth = require('../lib');
+const nock = require('nock');
+const expect = require('chai').expect;
 
 describe('Microsoft authentication', () => {
   describe('Signin', () => {
     it('tests signin with default params', () => {
-      let providerConfig = config('microsoft');
-      auth.signin(providerConfig, {}, (err, data) => {
+      const providerConfig = config('microsoft');
+      auth.signinHandler(providerConfig, {}, (err, data) => {
         expect(err).to.be.null;
         expect(data.url).to.equal('https://login.live.com/oauth20_authorize.srf?client_id=fb-microsoft-id&redirect_uri=https://api-id.execute-api.eu-west-1.amazonaws.com/dev/callback/microsoft&response_type=code&scope=wl.basic');
       });
@@ -16,7 +17,7 @@ describe('Microsoft authentication', () => {
 
     it('tests signin with scope and state params', () => {
       let providerConfig = config('microsoft');
-      auth.signin(providerConfig, {scope: 'wl.basic wl.emails', state: '123456'}, (err, data) => {
+      auth.signinHandler(providerConfig, {scope: 'wl.basic wl.emails', state: '123456'}, (err, data) => {
         expect(err).to.be.null;
         expect(data.url).to.equal('https://login.live.com/oauth20_authorize.srf?client_id=fb-microsoft-id&redirect_uri=https://api-id.execute-api.eu-west-1.amazonaws.com/dev/callback/microsoft&response_type=code&scope=wl.basic wl.emails&state=123456');
       });
@@ -25,7 +26,7 @@ describe('Microsoft authentication', () => {
 
   describe('Callback', () => {
     before(() => {
-      let providerConfig = config('microsoft');
+      const providerConfig = config('microsoft');
       nock('https://login.live.com')
         .post('/oauth20_token.srf')
         .query({
@@ -51,8 +52,8 @@ describe('Microsoft authentication', () => {
         });
     });
     it('should return profile', (done) => {
-      let providerConfig = config('microsoft');
-      auth.callback({code: 'code', state: 'state'}, providerConfig, (err, profile) => {
+      const providerConfig = config('microsoft');
+      auth.callbackHandler({code: 'code', state: 'state'}, providerConfig, (err, profile) => {
         expect(profile.id).to.equal('user-id-1');
         expect(profile.name).to.equal('Eetu Tuomala');
         expect(profile.email).to.equal('email@test.com');
