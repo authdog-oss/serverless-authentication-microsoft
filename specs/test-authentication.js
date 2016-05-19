@@ -16,7 +16,7 @@ describe('Microsoft authentication', () => {
     });
 
     it('tests signin with scope and state params', () => {
-      let providerConfig = config('microsoft');
+      const providerConfig = config('microsoft');
       auth.signinHandler(providerConfig, {scope: 'wl.basic wl.emails', state: '123456'}, (err, data) => {
         expect(err).to.be.null;
         expect(data.url).to.equal('https://login.live.com/oauth20_authorize.srf?client_id=fb-microsoft-id&redirect_uri=https://api-id.execute-api.eu-west-1.amazonaws.com/dev/callback/microsoft&response_type=code&scope=wl.basic wl.emails&state=123456');
@@ -51,6 +51,7 @@ describe('Microsoft authentication', () => {
           picture: 'https://avatars3.githubusercontent.com/u/4726921?v=3&s=460'
         });
     });
+
     it('should return profile', (done) => {
       const providerConfig = config('microsoft');
       auth.callbackHandler({code: 'code', state: 'state'}, providerConfig, (err, profile) => {

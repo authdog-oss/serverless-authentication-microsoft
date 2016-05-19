@@ -1,4 +1,6 @@
-var chai = require('chai');
+'use strict';
+
+const chai = require('chai');
 
 process.env.PROVIDER_MICROSOFT_ID = 'fb-microsoft-id';
 process.env.PROVIDER_MICROSOFT_SECRET = 'fb-microsoft-secret';
