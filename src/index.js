@@ -3,14 +3,13 @@
 import { Profile, Provider } from 'serverless-authentication';
 
 function mapProfile(response) {
-  return new Profile({
-    id: response.id,
-    name: response.name,
+  const overwrites = {
     email: response.emails && response.emails.preferred ? response.emails.preferred : null,
     picture: `https://apis.live.net/v5.0/${response.id}/picture`,
     provider: 'microsoft',
     _raw: response
-  });
+  };
+  return new Profile(Object.assign(response, overwrites));
 }
 
 class MicrosoftProvider extends Provider {
