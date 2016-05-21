@@ -6,9 +6,9 @@ function mapProfile(response) {
   const overwrites = {
     email: response.emails && response.emails.preferred ? response.emails.preferred : null,
     picture: `https://apis.live.net/v5.0/${response.id}/picture`,
-    provider: 'microsoft',
-    _raw: response
+    provider: 'microsoft'
   };
+
   return new Profile(Object.assign(response, overwrites));
 }
 
@@ -39,10 +39,13 @@ class MicrosoftProvider extends Provider {
   }
 }
 
-export function signinHandler(config, options, callback) {
+const signinHandler = (config, options, callback) =>
   (new MicrosoftProvider(config)).signinHandler(options, callback);
-}
 
-export function callbackHandler(event, config, callback) {
+const callbackHandler = (event, config, callback) =>
   (new MicrosoftProvider(config)).callbackHandler(event, callback);
-}
+
+exports.signinHandler = signinHandler;
+exports.signin = signinHandler; // old syntax, remove later
+exports.callbackHandler = callbackHandler;
+exports.callback = callbackHandler; // old syntax, remove later
