@@ -68,7 +68,7 @@ describe('Microsoft authentication', () => {
         expect(profile.email).to.equal('email@test.com');
         expect(profile.picture).to.equal('https://apis.live.net/v5.0/user-id-1/picture');
         expect(profile.provider).to.equal('microsoft');
-        expect(profile._raw.access_token).to.equal('access-token-123');
+        expect(profile.at_hash).to.equal('access-token-123');
         done(err);
       })
     });
