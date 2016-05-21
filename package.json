@@ -1,6 +1,6 @@
 {
   "name": "serverless-authentication-microsoft",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Windows Live module for Serverless Authentication",
   "main": "lib/index.js",
   "license": "MIT",
