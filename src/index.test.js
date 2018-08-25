@@ -47,12 +47,13 @@ describe('Microsoft authentication', () => {
       nock('https://login.live.com')
         .post(
           '/oauth20_token.srf',
-          ({ client_id, redirect_uri, client_secret, code }) =>
-            (client_id =
-              providerConfig.id &&
-              redirect_uri === providerConfig.redirect_uri &&
-              client_secret === providerConfig.secret &&
-              code === 'code')
+          ({
+            client_id, redirect_uri, client_secret, code
+          }) =>
+            client_id === providerConfig.id &&
+            redirect_uri === providerConfig.redirect_uri &&
+            client_secret === providerConfig.secret &&
+            code === 'code'
         )
         .reply(200, {
           access_token: 'access-token-123'

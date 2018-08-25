@@ -20,6 +20,7 @@ module.exports = {
     'func-names': 'off',
     'operator-linebreak': 'off',
     'implicit-arrow-linebreak': 'off',
+    'camelcase': 'off',
     semi: ['error', 'never']
   }
 }
